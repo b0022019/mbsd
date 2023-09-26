@@ -1,0 +1,28 @@
+<html>
+<head></head>
+<body>
+<script type="text/javascript">
+<!--
+function hoge() {
+	var valueA = "a:" + document.getElementById("textfield1").value;
+	var valueB = "b:" + document.getElementById("textfield2").value;
+	var valueC = "c:" + document.getElementById("textfield3").value;
+	var valueD = "d:" + document.getElementById("textfield4").value;
+	var valueE = "e:" + document.getElementById("textfield5").value;
+	var valueF = "f:" + document.getElementById("textfield6").value;
+
+	document.getElementById("qCont").value = valueA + "\n" + valueB + "\n" + valueC + "\n" + valueD + "\n" + valueE + "\n" + valueF;
+}
+// -->
+</script>
+<form>
+	A<input type="text" id="textfield1" size="1" onChange="hoge()"/><br>
+	B<input type="text" id="textfield2" size="1" onChange="hoge()"/><br>
+	C<input type="text" id="textfield3" size="1" onChange="hoge()"/><br>
+	D<input type="text" id="textfield4" size="1" onChange="hoge()"/><br>
+	E<input type="text" id="textfield5" size="1" onChange="hoge()"/><br>
+	F<input type="text" id="textfield6" size="1" onChange="hoge()"/><br>
+	<textarea id="qCont" cols="40" rows="6"></textarea>
+</form>
+</body>
+</html>
