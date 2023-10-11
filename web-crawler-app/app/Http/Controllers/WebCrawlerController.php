@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Symfony\Component\BrowserKit\HttpBrowser;
+use App\Models\WebPage;
 
 class WebCrawlerController extends Controller
 {
@@ -15,12 +16,12 @@ class WebCrawlerController extends Controller
     public function crawl(Request $request)
     {
         $url = $request->input('url');
-        $client = new Client();
+        $client = new HttpBrowser();
         $crawler = $client->request('GET', $url);
         $content = $crawler->filter('body')->html();
 
         // クロールしたデータをデータベースに保存
-        \App\WebPage::create([
+        $post = WebPage::create([
             'url' => $url,
             'content' => $content,
         ]);

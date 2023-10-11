@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class WebPage extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'url',
+        'content',
+    ];
 }
