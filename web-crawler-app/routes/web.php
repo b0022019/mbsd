@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebCrawlerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+// Route::get('/', 'WebCrawlerController@index');
+// Route::post('/crawl', 'WebCrawlerController@crawl')->name('crawl');
+
+
+Route::get('/', [WebCrawlerController::class, 'index']);
+
+Route::post('/crawl', [WebCrawlerController::class, 'crawl'])
+->name('crawl');
