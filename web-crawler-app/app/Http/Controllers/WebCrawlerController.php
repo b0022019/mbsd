@@ -13,8 +13,11 @@ class WebCrawlerController extends Controller
         return view('crawler');
     }
 
-    public function crawl(Request $request)
-    {
+    public function crawl(Request $request) {
+        $validated = $request->validate([
+            'url' => 'required|url', // URLが必須であることと、有効なURLであることをバリデーション
+        ]);
+
         $url = $request->input('url');
         $client = new HttpBrowser();
         $crawler = $client->request('GET', $url);
