@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ログイン</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<header>
+	<center>
+		<h1>クローラー　テストページ　ログイン画面</h1>
+	</center>
+</header>
+
+<br>
+<br>
+<br>
+
+<body>
+<center>
+	<h2>メールアドレス、パスワードをご入力の上、「ログイン」ボタンをクリックしてください</h2>
+    <form name="login_form">
+      	<div>
+        	<label for="mail">メールアドレス</label>
+      	</div>
+      	<input type="id" name="id" placeholder="aaaa@gmail.com">
+
+        <div>
+          <label for="user">ユーザー名</label>
+        </div>
+        <input type="id" name="id" placeholder="tarou">
+
+	      <div>
+    	    <label for="pass">パスワード</label>
+      	</div>
+      	   <input type="password" name="pass" placeholder="半角英数８文字以上">
+        </div>
+      	<br>
+      	<br>
+      	<div>
+        	<button type="submit" onClick="nextPage();" id="touroku"><a href= "userpassword.html">ログイン</a></button>
+      	</div>
+   	</form>
+
+    <h2>初めての方はこちら</h2>
+    <form name="sinki_form">
+      <div>
+        <label for="name">名前</label>
+      </div>
+      <input type="id" name="sinkiname" placeholder="山田太郎">
+      <div>
+          <label for="user">ユーザー名</label>
+        </div>
+        <input type="id" name="id" placeholder="tarou">
+
+      <div>
+        <label for="mail">メールアドレス</label>
+      </div>
+      <input type="password" name="sinkie-mail" placeholder="aaa@gmail.com">
+      <div>
+        <label for="pass">パスワード</label>
+      </div>
+      <input type="id" name="sinkipass" placeholder="半角英数８文字以上">
+      <div>
+        <div>
+        <label for="repass">パスワード（確認）</label>
+      </div>
+      <input type="id" name="sinkipass" placeholder="半角英数８文字以上">
+      <div>
+      <br>
+      <br>
+      <div>
+        <button type="submit" onClick="sinkiPage();"><a href="touroku.html">新規登録</a></button>
+      </div>
+    </form>
+</center>
+
+<!--ログイン処理-->
+
+  <script language="JavaScript" type="text/javascript">
+    function nextPage() {
+      id = document.login_form.id.value
+      pwd = document.login_form.pass.value;
+      location.href = id + pwd + ".html";
+    }
+     function sinkiPage() {
+      id = document.login_form.sinkiID.value
+      pwd = document.login_form.sinkiPass.value;
+    }
+    try {
+      fs.copyFileSync('file:/userpassword.html', './sinki/userpassword.html');
+      console.log(fs.existsSync('./sinki/userpassword.html')); // -> true
+    } catch (err) {
+      console.log(err);
+    }
+  </script>
+
+</body>
+</html>
