@@ -27,3 +27,4 @@ Route::get('/', [WebCrawlerController::class, 'index']);
 
 Route::post('/crawl', [WebCrawlerController::class, 'crawl'])
 ->name('crawl');
+

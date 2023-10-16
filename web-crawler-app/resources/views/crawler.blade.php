@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 <head>
     <title>Web Crawler</title>
@@ -14,5 +14,26 @@
         <button type="submit">実行</button>
     </form>
 </body>
-</html>
+</html> --}}
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Crawler</title>
+</head>
+<body>
+    <h1>Web Crawler</h1>
+    <form method="post" action="{{ route('crawl') }}">
+        @csrf
+        <div>
+            <label for="url">URL:</label>
+            <input type="text" name="url" id="url" placeholder="URLを入力してください" required>
+        </div>
+        <div>
+            <label for="keywords">Keywords:</label>
+            <input type="text" name="keywords" id="keywords" placeholder="Enter Keywords" required>
+        </div>
+        <button type="submit">実行</button>
+    </form>
+</body>
+</html>
